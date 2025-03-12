@@ -12,10 +12,18 @@ def main(argv):
     parser = argparse.ArgumentParser(description="Raspberry Pi MOTD")
     parser.add_argument("hostname", help="The host name")
     parser.add_argument("model", help="The model name")
+    parser.add_argument("-o", "--output-file")
 
     args = parser.parse_args(argv)
 
-    print(create_motd(args.hostname, args.model))
+    output_file = args.output_file
+    if output_file is None:
+        fh = sys.stdout
+    else:
+        fh = open(output_file, "w")
+
+    print(create_motd(args.hostname, args.model), file=fh)
+
 
 
 def create_motd(hostname: str, model: str) -> str:

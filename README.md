@@ -31,6 +31,6 @@ The output includes ANSI colors, so when you run the command it will look like t
 On a Raspberry Pi, you can run this to set the output to be the first thing you see upon login in the terminal:
 
 ```bash
-poetry run python -m raspberry_pi_motd "Hostname" "Raspberry Pi 5" > motd
+poetry run python -m raspberry_pi_motd "Hostname" "Raspberry Pi 5" -o motd
 sudo mv motd /etc/motd
 ```
